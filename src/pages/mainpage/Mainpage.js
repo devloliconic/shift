@@ -6,10 +6,11 @@ import Main from "./main/MainPMain"
 
 
 function Mainpage() {
-    return (
-      <div className=""></div>
-    );
-  }
-  
-  export default Mainpage;
-  
+  return (
+    <div className="">
+      <Main />
+    </div>
+  );
+}
+
+export default Mainpage;

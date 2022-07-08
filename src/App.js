@@ -1,9 +1,11 @@
-import MainPage from "./pages/mainpage/Mainpage"
-import UserPage from "./pages/userpage/UserPage"
+//import logo from './logo.svg';
+import "./App.scss";
 
 function App() {
   return (
-    <div className=""></div>
+    <div className="App">
+      <div>lalalal</div>
+    </div>
   );
 }
 
