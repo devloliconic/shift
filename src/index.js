@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import "normalize.css"
 // import MainPage from './pages/mainpage/Mainpage';
 import { BrowserRouter} from 'react-router-dom';
-import App from './pages/mainpage/Mainpage';
+import App from './pages/startpage/Startpage';
 
 //import reportWebVitals from './reportWebVitals';
 
