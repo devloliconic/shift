@@ -1,0 +1,46 @@
+
+$blue : #337AB7;
+$green : #53DF83;
+$gray : #D9D9D9;
+$darkgray : #3F3F3F;
+
+
+.header{
+    background-color: $green;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    &__items{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo{
+        text-decoration: none;
+        font-size: 20px;
+        color: $darkgray;
+        margin: 0;
+    }
+    &__nav{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+    &__link{
+        text-decoration: none;
+        color: $darkgray;
+        font-size: 18px;
+        transition: .2s all linear;
+        &:hover{
+            color: #2b2626;
+        }
+    }
+    &__linkbox{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+    }
+}

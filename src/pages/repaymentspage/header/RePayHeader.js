@@ -1,5 +1,5 @@
 import "normalize.css"
-import "../repaylobal/RePayGlobal.scss"
+import "../repayglobal/RePayGlobal.scss"
 import './RePayHeader.scss';
 
 function RePayHeader() {
