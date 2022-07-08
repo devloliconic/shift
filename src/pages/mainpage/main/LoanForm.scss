@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.regForm {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-decoration: solid;
+    font-size: 15px;
+    color: #fff;
+
+    background-color:#53DF83;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+
+}
+
+.errorText{
+
+    padding-bottom: 3px;
+}
+.loanPart{
+    color: white;
+    width: 700px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+   
+}
+.loanSumm{
+    padding-left: 50px;
+    width: 250px;
+    height: 100px;
+}
+
+.loanSummLabel{
+    font-size: 15px;
+    
+}
+.daysCount{
+    padding-right: 50px;
+    width: 250px;
+    height: 100px;
+}
+
+input {
+    width: 200px;
+    border-radius: 5px;
+     
+}
+
+.daysCoutLabel{
+    font-size: 15px;
+    width: 100px;
+}
+
+.daysCountSelector{
+    
+    width: 100px;
+}
+
+.refundPart{
+    color:white;
+    width: 700px;
+    text-align: left;
+    display: flex;
+    // justify-content: space-between;
+   
+}
+.refundSummLabel{
+    padding-left: 50px;
+    width: 100px;
+}
+
+.refundSummValue{
+    padding-right: 100px;   
+    width: 100px;
+}
+
+button {
+    width: 150px;
+    margin: 0px auto 10px auto;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+}

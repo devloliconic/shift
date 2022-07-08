@@ -5,9 +5,11 @@ import Footer from "./footer/LoginFooter"
 import Main from "./main/LoginMain"
 
 
-function LoginPage() {
+const LoginPage = () => {
     return (
-      <div>dasda</div>
+      <div>
+        тут
+      </div>
     );
   }
   

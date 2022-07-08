@@ -2,6 +2,7 @@ import React from "react";
 import "normalize.css"
 import "../mainglobal/MainGlobal.scss"
 import './MainPMain.scss';
+import RegisterForm from './LoanForm';
 import money from "../img/11-14.jpg"
 
 function MainPMain() {
@@ -28,7 +29,9 @@ function MainPMain() {
                 <p className="main__title">Я не знаю что писать</p>
               </div>
               <div className="main__inputbox">
-
+                <div>
+                  <RegisterForm />
+                </div>
               </div>
             </div>
           </div>

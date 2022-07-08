@@ -7,14 +7,16 @@ import Main from "./main/MainPMain"
 
 
 function Mainpage() {
+
     return (
       <div className="page">
         <Header></Header>
+        {/* <Main />  */}
         {/* <Main></Main> */}
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
       </div>
     );
   }
   
   export default Mainpage;
-  
+
