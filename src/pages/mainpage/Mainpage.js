@@ -12,7 +12,7 @@ function Mainpage() {
       <div className="page">
         <Header></Header>
         
-          <Main />
+          {/* <Main /> */}
         
         {/* <Main></Main> */}
         {/* <Footer></Footer> */}

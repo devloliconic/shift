@@ -37,7 +37,7 @@ const LoanForm = () => {
 
     const summValidation = (e) => {
         setSumm(e.target.value)
-        if(!isNaN(e.target.value)){
+        if(!isNaN(e.target.value) && (e.target.value)){
             setSummError(false);
             setSummPartOfRefundSumm(e)
             
@@ -50,7 +50,7 @@ const LoanForm = () => {
 
     const dayCountValidation = (e) => {
         setDaysCount(e.target.value)
-        if(!isNaN(e.target.value)){
+        if(!isNaN(e.target.value) && (e.target.value) ){
             setDaysCountError("")
             setDaysPartOfRefundSumm(e)
         }
