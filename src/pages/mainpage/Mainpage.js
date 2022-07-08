@@ -1,3 +1,4 @@
+import React from "react"
 import "normalize.css"
 import "./mainglobal/MainGlobal.scss"
 import Header from "./header/MainHeader"
@@ -7,7 +8,7 @@ import Main from "./main/MainPMain"
 
 function Mainpage() {
     return (
-      <div className=""></div>
+      <Header />
     );
   }
   

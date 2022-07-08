@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 //import './index.css';
 import "normalize.css"
-import App from './pages/loginpage/LoginPage.js';
+import App from './pages/mainpage/Mainpage';
 //import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
