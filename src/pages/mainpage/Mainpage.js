@@ -8,7 +8,11 @@ import Main from "./main/MainPMain"
 
 function Mainpage() {
     return (
-      <Header />
+      <div className="page">
+        <Header></Header>
+        {/* <Main></Main> */}
+        {/* <Footer></Footer> */}
+      </div>
     );
   }
   
