@@ -5,7 +5,7 @@ import "normalize.css"
 
 // import MainPage from './pages/mainpage/Mainpage';
 import { BrowserRouter} from 'react-router-dom';
-import App from './pages/startpage/Startpage';
+import App from './pages/mainpage/Mainpage';
 
 //import reportWebVitals from './reportWebVitals';
 
