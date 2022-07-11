@@ -19,7 +19,7 @@ function MainHeader() {
       <header className="header">
         <div className="container">
           <div className="header__items">
-            <Link className="header__logo" to="/main">MacroZaymi</Link>
+            <Link className="header__logo" to="/">MacroZaymi</Link>
             <nav>
               <ul className="header__nav">
                 <li><Link className="header__link" to="/regp">Оформить займ</Link></li>
@@ -34,16 +34,14 @@ function MainHeader() {
           </div>
         </div>
       </header>
-      
       <Routes>
-        <Route path="/main" element = {<MainPages />} />
+        <Route path="/" element = {<MainPages />} />
         <Route path="/regp" element = {<Regpage />} />
         <Route path="/repay" element = {<Repaymentspage />} />
         <Route path="/user" element = {<User />} />
         <Route path="/signup" element = {<Signup />} />
         <Route path="/login" element = {<Loginpage />} />
       </Routes>
-      <Footer></Footer>
       </>
     );
   }

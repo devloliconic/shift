@@ -10,12 +10,10 @@ function Mainpage() {
 
     return (
       <div className="page">
-        {/* <Header></Header> */}
-              
-          {/* <Main /> */}
-        
+        <Header></Header>
+        {/* <Main />  */}
         {/* <Main></Main> */}
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
       </div>
     );
   }

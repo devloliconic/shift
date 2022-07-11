@@ -14,7 +14,6 @@ $darkgray : #3F3F3F;
         display: flex;
         align-items: flex-start;
         justify-content: center;
-        gap: 20px;
     }
     &__text{
         flex-grow: 1;
@@ -31,5 +30,8 @@ $darkgray : #3F3F3F;
     &__img{
         width: 100%;
         height: 100%;
+    }
+    &__inputbox{
+        flex-basis: 60%;
     }
 }

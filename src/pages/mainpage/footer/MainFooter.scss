@@ -9,10 +9,7 @@ $darkgray : #3F3F3F;
     background-color: $green;
     padding-top: 20px;
     padding-bottom: 20px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    margin-top: 20px;
     &__flex{
         display: flex;
         align-items: center;
