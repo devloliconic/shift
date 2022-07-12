@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "normalize.css"
 import "../signupglobal/SignUpGlobal.scss"
 import "./RegForm.scss"
-
+import * as axios from "axios";
 
 function RegForm() {
     const [email, setEmail] = useState('');
@@ -27,6 +27,28 @@ function RegForm() {
     const [patronymicError, setPatronymicError] = useState('Отчество не может быть пустым');
     const [passwordError, setPasswordError] = useState('Пароль не может быть пустым');
     const [formValid, setFormValid] = useState(false)
+
+    const values = {
+        email: email,
+        name: name,
+        surname: surname,
+        patronymic: patronymic,
+        password: password
+    }
+    let config = {
+        headers: {
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*',
+        }
+    }
+
+    function post(email, name, surname, patronymic,password){
+        axios.post("http://localhost:8080/api/auth/sing-up", {email: email,password: password,surname: surname, patronymic:patronymic, name: name}, config).then(response => {
+            console.log((response.data));
+            debugger;
+        })
+
+    }
 
     useEffect( () =>{
         if(emailError || passwordError || nameError || surnameError || patronymicError || seriesError || numberError){
@@ -225,7 +247,7 @@ function RegForm() {
                 placeholder="Пароль" 
                 className="form__input"
             />
-            <button disabled={!formValid} className="form__btn">За деньгами!</button>
+            <button type={"submit"} onClick={({email, name, surname, patronymic,password}) => post(email, name, surname, patronymic,password)} className="form__btn">За деньгами!</button>
         </form>
     </div>
 

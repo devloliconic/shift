@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import * as Axios from "axios";
 
 
 import "normalize.css"
@@ -8,6 +9,7 @@ import "./loginglobal/LoginGlobal.scss"
 import HeaderTop from "./header/LoginHeader"
 import Footer from "./footer/LoginFooter"
 import Main from "./main/LoginMain"
+import axios from "axios";
 
 
 const LoginPage = () => {
@@ -15,6 +17,18 @@ const LoginPage = () => {
       email: Yup.string().email("Неправильная почта"),
       password: Yup.string(),
     })
+
+
+
+
+    function post(values){
+        Axios.post("api/auth/sing-in", {email : values.email , password: values.password}).then(response => {
+            console.log((response.url));
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
     return (
       <div className='login'>
         <Formik
@@ -24,7 +38,7 @@ const LoginPage = () => {
           }}
           validationSchema={SignupSchema}
           validateOnBlur={SignupSchema}
-          onSubmit = {values => {console.log(values);}}
+          onSubmit = {values => {post(values)}}
         >
           {({values, errors, handleBlur, isValid, dirty, touched, handleChange, handleSubmit,  isSubmitting}) => (
             <Form>
