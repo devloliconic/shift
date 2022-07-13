@@ -1,0 +1,29 @@
+html{
+    background-image: url(./images/BackGround.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+
+.container{
+    font-family: 'Inter';
+    
+    display: flex;
+    justify-content: space-between;
+
+
+    &__main-text{
+        font-weight: 800;
+        color:white;
+        margin: auto;
+        text-align: center;
+        font-size: 118px;
+
+        &__free{
+            color:#4DFFDF;
+        }
+    }
+}
+

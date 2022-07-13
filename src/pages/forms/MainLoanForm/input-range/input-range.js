@@ -2,10 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
+
 import './inpit-range.scss'
-
-
-
 
 export default function Slider(props) {
 
@@ -14,14 +12,14 @@ export default function Slider(props) {
     function setRangeInput(slider){
          setSliderValue(slider.target.value); console.log(sliderValue);
     }
-
-
   return (
-    <div className='form-container'>
+    <div 
+    className={props.className}
+                >  {/* форма со слайдером*/}
                 <div className='form-container__top-text text'>
-                    <label>{props.title}</label>
-                    {(sliderValue!='') && <label>{sliderValue} {props.units}</label>}
-                    {(sliderValue =='') && <label>{props.defaultValue} {props.units}</label>}
+                    <label className='form-container__slider-title'>{props.title}</label>
+                    {(sliderValue!='') && <label className='form-container__slider-value'>{sliderValue} {props.units}</label>}
+                    {(sliderValue =='') && <label className='form-container__slider-value'>{props.defaultValue} {props.units}</label>}
                 </div>
                 <div className='form-container__range-input'>
                             <input 
@@ -32,9 +30,9 @@ export default function Slider(props) {
                             max={props.maxValue}
                             ></input>
                 </div>
-                <div className='bot-text text'>
-                    <label>{props.minValue}</label>
-                    <label>{props.maxValue}</label>
+                <div className='form-container__bot-text text'>
+                    <label className='form-container__min-value'>{props.minValue}</label>
+                    <label className='form-container__max-value'>{props.maxValue}</label>
                 </div>
             </div>
   )
