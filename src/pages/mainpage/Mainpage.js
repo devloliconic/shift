@@ -11,11 +11,9 @@ function Mainpage() {
     return (
       <div className="page">
         <Header></Header>
-        
-          {/* <Main /> */}
-        
+        {/* <Main />  */}
         {/* <Main></Main> */}
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
       </div>
     );
   }

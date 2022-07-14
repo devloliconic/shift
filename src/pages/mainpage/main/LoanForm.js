@@ -1,11 +1,13 @@
 import './LoanForm.scss';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 
 
-const LoanForm = () => {
+const LoanForm = ({isLoggedIn}) => {
 
     function setSummPartOfRefundSumm(sum) {
+        
         setCalculatedSumm(sum.target.value * 1.5);
 
     };
@@ -20,13 +22,13 @@ const LoanForm = () => {
 
     //консты для валидации суммы и кол-ва дней
     const[summ, setSumm] = useState();
-    const[daysCount, setDaysCount] = useState();
-    const[summError, setSummError] = useState('ошибка суммы');
-    const[daysCoutError, setDaysCountError] = useState('ошибка дней');
+    const[daysCount, setDaysCount] = useState('');
+    const[summError, setSummError] = useState('');
+    const[daysCoutError, setDaysCountError] = useState('');
     const[formValid, setFormValid] = useState(false);
 
     useEffect(()=>{             //проверка всей формы на валидность для кнопки
-        if(summError || daysCoutError){
+        if(summError === "uncorect" || daysCoutError === "uncorect"){
             setFormValid(false)
         }
         else{
@@ -38,12 +40,12 @@ const LoanForm = () => {
     const summValidation = (e) => {
         setSumm(e.target.value)
         if(!isNaN(e.target.value) && (e.target.value)){
-            setSummError(false);
+            setSummError("corect");
             setSummPartOfRefundSumm(e)
             
         }
         else {
-            setSummError('некорректная сумма')
+            setSummError('uncorect')
             setSummPartOfRefundSumm('')
         }
     }
@@ -51,11 +53,11 @@ const LoanForm = () => {
     const dayCountValidation = (e) => {
         setDaysCount(e.target.value)
         if(!isNaN(e.target.value) && (e.target.value) ){
-            setDaysCountError("")
+            setDaysCountError("corect")
             setDaysPartOfRefundSumm(e)
         }
         else {
-            setDaysCountError('некорректное кол-во дней')
+            setDaysCountError('uncorect')
             setDaysPartOfRefundSumm('')
         }
     }
@@ -70,14 +72,28 @@ const LoanForm = () => {
         
     }
 
+    let navigate = useNavigate();
+
+
+    function transferToLink(){
+        if(isLoggedIn===true){
+            navigate("../regp")
+        }
+        else{
+            navigate("../login")
+        }
+    }
+
+
     return (
         <form className="regForm">
             <div className='loanPart'>
                 <div className='loanSumm'>
                     <p className='loanSummLabel'>Сумма займа:</p>
-                    {(summError) && <div className='errorText' style={{color: 'red'}}>{summError}</div>}
+                    {<div className={`seterror ${summError}`}>Ошибка ввода</div>}
                     <input
                         onChange={e => { onChangeFuncForSumm(e)}}
+                        maxLength = "6"
                         value ={summ}
                         className='loanSummInput'
                         type="text"
@@ -85,11 +101,12 @@ const LoanForm = () => {
                         />
                 </div>
                 <div className='daysCount'>
-                    <p className='daysCoutLabel'>Кол-во дней</p>
-                    {((daysCoutError) && <div className='errorText' style={{color: 'red'}}>{daysCoutError}</div>)}
+                    <p className='daysCoutLabel'>Кол-во дней:</p>
+                    {(<div className={`seterror ${daysCoutError}`}>Ошибка ввода</div>)}
                     <input
                         onChange={e => { onChangeFuncForDaysCount(e)}}
                         value ={daysCount}
+                        maxLength = "6"
                         className='dayCountInput'
                         type="text"
                         placeholder="Введитe дни" 
@@ -103,8 +120,10 @@ const LoanForm = () => {
                 </p>
             </div>
             <button 
+                className='btn'
                 disabled={!formValid}
-                type='submit'>Взять бабосы
+                onClick={transferToLink}
+                >Взять бабосы
             </button>
         </form>
     );

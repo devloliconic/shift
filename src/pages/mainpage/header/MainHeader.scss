@@ -41,6 +41,18 @@ $darkgray : #3F3F3F;
         display: flex;
         align-items: center;
         gap: 20px;
+    }
+    &__logout{
+        border: 0;
+        background-color: $blue;
+        border: 1px solid $blue;
+        padding: 10px 20px;
+        color: white;
+        border-radius: 10px;
+        transition: .2s all linear;
+        &:hover{
+            background-color: transparent;
+        }
 
     }
 }
