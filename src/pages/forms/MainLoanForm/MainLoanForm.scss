@@ -44,24 +44,12 @@ input[type='range']::-webkit-slider-thumb { //кружок ползунка
     box-shadow:inset;
   }
 
-  input[type='radio']:checked .form-container__packages-block__item__label:after{           //полоска ползунка
-    content:"";
-    height: 15px;
-    width: 15px;
-    border: 3px solid red;
-   
- }
-
-  input[type='radio'] {           //полоска ползунка
-    //  display: none;
-    
-    
-    // background-color: $color_white;
-    
-    // min-width: 555px;
-    // min-height: 55px;
-    // border-radius: 50px;
-    // cursor: pointer;
+ 
+  input[type='radio']{    
+    display:none;       
+    &:checked{
+        display: block;
+    }
     
   }
 .form-container{        //главный контейнер формы
@@ -135,10 +123,6 @@ input[type='range']::-webkit-slider-thumb { //кружок ползунка
 
         &:disabled{
             border: none;
-        }
-
-        &:hover{
-            
         }
 
         &:hover:disabled{

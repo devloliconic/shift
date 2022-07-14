@@ -6,24 +6,73 @@ html{
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
 
-
+.form-container{
+    max-width: 600px;
+}
 .core-container{
     font-family: 'Inter';
     
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding: 20px;
 
-    &__main-text{
-        font-weight: 800;
-        color:white;
-        margin: auto;
-        text-align: center;
-        font-size: 118px;
-
-        &__free{
-            color:#4DFFDF;
+    &__item{
+        display: flex;
+        
+        &__main-text{
+            font-weight: 800;
+            color:white;
+            margin: auto;
+            text-align: center;
+            font-size: 118px;
+    
+            &__free{
+                color:#4DFFDF;
+            }
         }
-    }
+
+        &__bot{
+            margin-top: 20px;
+            color:white;
+            font-size: 64px;
+            &__other-title{
+                
+                
+            }
+            &__benefits__top{
+                
+                margin-top: 50px;
+                min-width: 1800px;
+                
+                display: flex;
+                justify-content: space-between;
+
+                &__img1{
+                    content:"";
+                    min-width: 500px;
+                    background-image: url(./images/insurance.png);
+                    
+                }
+                &__1{
+                    padding: 0;
+                    min-height: 500px;
+                    min-width: 800px;
+                    // background-image: url(./images/insurance.png);    
+                    // background-repeat:no-repeat;
+                }
+            }
+            &__benefits__bot{
+                margin-top: 50px;
+                min-width: 1800px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            
+        }
+    } 
+
+    
 }
 
