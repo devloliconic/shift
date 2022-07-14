@@ -22,3 +22,15 @@ body{
 .main{
     margin-bottom: 270px;
 }
+.page{
+    position: relative;
+    //min-height: 100%;
+}
+.footer{
+    //position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.core{
+    min-height: 100vh;
+}

@@ -1,9 +1,10 @@
 import './LoanForm.scss';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 
 
-const LoanForm = () => {
+const LoanForm = ({isLoggedIn}) => {
 
     function setSummPartOfRefundSumm(sum) {
         
@@ -71,6 +72,19 @@ const LoanForm = () => {
         
     }
 
+    let navigate = useNavigate();
+
+
+    function transferToLink(){
+        if(isLoggedIn===true){
+            navigate("../regp")
+        }
+        else{
+            navigate("../login")
+        }
+    }
+
+
     return (
         <form className="regForm">
             <div className='loanPart'>
@@ -108,7 +122,8 @@ const LoanForm = () => {
             <button 
                 className='btn'
                 disabled={!formValid}
-                type='submit'>Взять бабосы
+                onClick={transferToLink}
+                >Взять бабосы
             </button>
         </form>
     );

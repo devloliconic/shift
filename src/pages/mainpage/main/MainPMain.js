@@ -5,7 +5,8 @@ import './MainPMain.scss';
 import RegisterForm from './LoanForm';
 import money from "../img/11-14.jpg"
 
-function MainPMain() {
+function MainPMain({isLoggedIn}) {
+
     return (
       <main className="main">
         <section className="main__blog">
@@ -30,7 +31,7 @@ function MainPMain() {
               </div>
               <div className="main__inputbox">
                 <div>
-                  <RegisterForm />
+                  <RegisterForm isLoggedIn={isLoggedIn} />
                 </div>
               </div>
             </div>

@@ -6,6 +6,9 @@ $darkgray : #3F3F3F;
 
 
 .login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid;
     padding: 20px;
     border-radius: 10px;

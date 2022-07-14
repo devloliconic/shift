@@ -1,34 +1,61 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {withRouter} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
-import { useQuery } from "react-query";
+import * as Axios from "axios";
+
 
 import "normalize.css"
 import "./loginglobal/LoginGlobal.scss"
 import HeaderTop from "./header/LoginHeader"
 import Footer from "./footer/LoginFooter"
 import Main from "./main/LoginMain"
+import axios from "axios";
 
 
-const LoginPage = () => {
-    
-    
-
+const LoginPage = (props) => {
+    console.log(props);
     const SignupSchema = Yup.object().shape({
       email: Yup.string().email("Неправильная почта"),
       password: Yup.string(),
     })
+    let navigate = useNavigate();
+
+
+
+    function transferToUserPage(data, email){
+        if(data === email){
+            props.setIsLoggedIn(true)
+            navigate("../user");
+        }
+        else{
+            return null;
+        }
+    }
+
+
+    function post(values){
+        Axios.post("api/auth/sing-in", {}, {params: {email : values.email , password: values.password}}).then(response => {
+            console.log((response.data));
+            const userResult = response.data.email;
+            return transferToUserPage(userResult, values.email)
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
     return (
       <div className='login'>
         <Formik
           initialValues={{
-            email: " ",
-            password: " ",
+            email: "",
+            password: "",
           }}
           validationSchema={SignupSchema}
           validateOnBlur={SignupSchema}
-          onSubmit = {values => {console.log(values);}}
+          onSubmit = {values => {post(values)}}
         >
           {({values, errors, handleBlur, isValid, dirty, touched, handleChange, handleSubmit,  isSubmitting}) => (
             <Form>
@@ -51,7 +78,7 @@ const LoginPage = () => {
               onBlur={handleBlur}
               value={values.password}
               />
-              <button type='submit' onClick={e=>(handleSubmit)} disabled={!isValid || isSubmitting} className='login__button'>Войти</button>
+              <button type='submit' onClick={handleSubmit} disabled={!isValid} className='login__button'>Войти</button>
             </Form>
           )}
         </Formik>
