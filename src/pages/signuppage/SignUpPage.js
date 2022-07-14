@@ -6,10 +6,10 @@ import Main from "./main/SignUpMain"
 import RegForm from "./main/RegForm"
 
 
-function SignUpPage() {
+function SignUpPage({setIsLoggedIn}) {
     return (
       <div className="container">
-        <RegForm></RegForm> 
+        <RegForm setIsLoggedIn = {setIsLoggedIn}></RegForm>
       </div>
     );
   }

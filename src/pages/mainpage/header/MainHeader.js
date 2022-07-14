@@ -82,7 +82,7 @@ function MainHeader() {
                     <Route path="/regp" element = {<Regpage isLoggedIn = {isLoggedIn} />} />
                     <Route path="/repay" element = {<Repaymentspage isLoggedIn = {isLoggedIn} />} />
                     <Route path="/user" element = {<User isLoggedIn = {isLoggedIn} />} />
-                    <Route path="/signup" element = {<Signup />} />
+                    <Route path="/signup" element = {<Signup setIsLoggedIn = {setIsLoggedIn}/>} />
                     <Route path="/login" element = {<Loginpage setIsLoggedIn = {setIsLoggedIn}/>} />
                 </Routes>
             </div>
