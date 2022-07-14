@@ -249,7 +249,7 @@ function RegForm() {
                 placeholder="Пароль" 
                 className="form__input"
             />
-            <button  onClick={({values}) => post(values)} className="form__btn">За деньгами!</button>
+            <button  onSubmit={(values) => post(values)} className="form__btn">За деньгами!</button>
         </form>
     </div>
 

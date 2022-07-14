@@ -7,12 +7,12 @@ html{
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
 
 
-.container{
+.core-container{
     font-family: 'Inter';
     
     display: flex;
     justify-content: space-between;
-
+    padding: 20px;
 
     &__main-text{
         font-weight: 800;

@@ -13,6 +13,7 @@ import Footer from "../footer/MainFooter"
 import MainPage from "../main/MainPMain"
 import MainPages from "../main/MainPMain";
 
+
 function MainHeader() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,17 +28,10 @@ function MainHeader() {
                 <header className="header">
                     <div className="container">
                         <div className="header__items">
-                            <Link className="header__logo" to="/">MacroZaymi</Link>
-                            {/*<nav>*/}
-                            {/*    <ul className="header__nav">*/}
-                            {/*        <li><Link className="header__link" to="/regp">Оформить займ</Link></li>*/}
-                            {/*        <li><Link className="header__link" to="/repay">Погасить займ</Link></li>*/}
-                            {/*        <li><Link className="header__link" to="/user">Личный кабинет</Link></li>*/}
-                            {/*    </ul>*/}
-                            {/*</nav>*/}
+                            <Link className="header__logo" to="/">МАКРОЗАЙМЫ</Link>
                             <div className="header__linkbox">
-                                <Link className="header__link" to="/signup">Регистрация</Link>
-                                <Link className="header__link" to="/login">Войти</Link>
+                                <Link className="header__link header__registration" to="/signup">Регистрация</Link>
+                                <Link className="header__link header__login" to="/login">Войти</Link>
                             </div>
                         </div>
                     </div>
@@ -60,7 +54,7 @@ function MainHeader() {
             <header className="header">
                 <div className="container">
                     <div className="header__items">
-                        <Link className="header__logo" to="/">MacroZaymi</Link>
+                        <Link className="header__logo" to="/">МАКРОЗАЙМЫ</Link>
                         <nav>
                             <ul className="header__nav">
                                 <li><Link className="header__link" to="/regp">Оформить займ</Link></li>
@@ -68,11 +62,7 @@ function MainHeader() {
                                 <li><Link className="header__link" to="/user">Личный кабинет</Link></li>
                             </ul>
                         </nav>
-                        {/*<div className="header__linkbox">*/}
-                        {/*    <Link className="header__link" to="/signup">Регистрация</Link>*/}
-                        {/*    <Link className="header__link" to="/login">Войти</Link>*/}
-                        {/*</div>*/}
-                        <button onClick={logOut} className={"header__logout"}>выход</button>
+                        <button onClick={logOut} className={"header__logout"}>Выход</button>
                     </div>
                 </div>
             </header>

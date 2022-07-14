@@ -3,38 +3,84 @@ $blue : #337AB7;
 $green : #53DF83;
 $gray : #D9D9D9;
 $darkgray : #3F3F3F;
+$color-cian: #4DFFDF;
+$color-red:rgba(189, 55, 55, 0.555);
+$color-blindgreen: rgba(28, 221, 28, 0.555);
+$color-wheat: rgba(246, 216, 162, 0.487);
 
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+
+.container{
+    min-width: 1900px;
+    
+
+
+}
 
 .header{
-    background-color: $green;
+
+    // border: white;
+    display: flex;
+    justify-content: space-between;
+    background-color: $blue;
     padding-top: 20px;
     padding-bottom: 20px;
+    font-family: 'Inter';
+    font-size: 36px;
+    color: white;
+    
+    
     &__items{
+        // border: 5px solid white;
+        border-radius: 15px;
+        padding: 10px;
+        // margin-left: 50px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        
     }
     &__logo{
+        font-size: 50px;
+        border: 3px solid white;
+        border-radius:15px;
         text-decoration: none;
-        font-size: 20px;
-        color: $darkgray;
-        margin: 0;
+        color: white;
+        padding: 5px;
+        transition: .2s all linear;
+        border-radius: 15px;
+        &:hover{
+            background-color:$color-wheat;
+        }
+        
+        
     }
     &__nav{
+        
+        display: flex;
+        justify-content: space-between;
         margin: 0;
         padding: 0;
         list-style: none;
-        display: flex;
+        
         align-items: center;
         gap: 50px;
     }
     &__link{
         text-decoration: none;
-        color: $darkgray;
-        font-size: 18px;
+        color: white;
+        padding: 5px;
         transition: .2s all linear;
+        border-radius: 15px;
         &:hover{
-            color: #2b2626;
+            // color:$color-cian;
+            background-color: #4dffdeb2;
+            
+            // border: 3px solid white;
+            // border-radius: 15px;
+
         }
     }
     &__linkbox{
@@ -42,17 +88,47 @@ $darkgray : #3F3F3F;
         align-items: center;
         gap: 20px;
     }
-    &__logout{
-        border: 0;
+    &__login{
+        
         background-color: $blue;
-        border: 1px solid $blue;
+        border: 3px solid white;
         padding: 10px 20px;
         color: white;
         border-radius: 10px;
         transition: .2s all linear;
         &:hover{
-            background-color: transparent;
+            background-color: $color-red;
         }
-
     }
+    &__registration{
+        border: 0;
+        background-color: $blue;
+        border: 3px solid white;
+        padding: 10px 20px;
+        color: white;
+        border-radius: 10px;
+        transition: .2s all linear;
+        &:hover{
+            background-color: $color-blindgreen;
+        }
+    }
+    &__logout{
+        border: 0;
+        background-color: $blue;
+        border: 3px solid white;
+        padding: 10px 20px;
+        color: white;
+        border-radius: 10px;
+        transition: .2s all linear;
+        &:hover{
+            background-color: $color-red;
+        }
+        
+     
+    
+    }
+         
+    
+    
+
 }

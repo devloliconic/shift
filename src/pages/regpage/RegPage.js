@@ -9,8 +9,6 @@ import React, {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
 
-
-
 function RegPage({isLoggedIn}) {
     let navigate = useNavigate();
     useEffect(() => {
@@ -20,19 +18,17 @@ function RegPage({isLoggedIn}) {
     },[isLoggedIn]);
     if(isLoggedIn) {
         return (
-            <div className=""></div>
-        );
+            <div className="core-container">
+              <div className="core-container__main-text">
+                <label>ВОЗЬМИ ПЕРВЫЙ ЗАЙМ</label>
+                <label className="core-container__main-text__free">БЕСПЛТАНО</label>
+              </div>
+              <RegMain className="core-container__main-form" />
+            </div>
+          );
     }
     
-    return (
-      <div className="container">
-        <div className="container__main-text">
-          <label>ВОЗЬМИ ПЕРВЫЙ ЗАЙМ</label>
-          <label className="container__main-text__free">БЕСПЛТАНО</label>
-        </div>
-        <RegMain className="container__main-form" />
-      </div>
-    );
+   
   }
 
     export default RegPage;
