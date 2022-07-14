@@ -1,0 +1,236 @@
+$color_gray : #D9D9D9;
+$color_green : #53DF83;
+$color_dark-gray : #3F3F3F;
+$color_dar-green : #0a3920;
+$color_white : #ffff;
+$color_red: red;
+$button-color: #0075FF;
+$color_white: white;
+$form-color: #D9D9D94D;
+$tumblers-color: #4197E1;
+$values-lables-color:#337AB766;
+$color-cian: #4DFFDF;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;800&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+
+}
+label{
+    padding: 5px;
+}
+
+input[type='range'] {           //полоска ползунка
+    -webkit-appearance: none;
+    background-color: $color_white;
+    min-width: 555px;
+    min-height: 55px;
+    border-radius: 50px;
+    cursor: pointer;
+    
+  }
+input[type='range']::-webkit-slider-thumb { //кружок ползунка
+    -webkit-appearance: none;
+    width: 55px; 
+    height: 55px;
+    border-radius:50%;
+    background: $tumblers-color;
+    box-shadow:inset;
+  }
+
+  input[type='radio']:checked .form-container__packages-block__item__label:after{           //полоска ползунка
+    content:"";
+    height: 15px;
+    width: 15px;
+    border: 3px solid red;
+   
+ }
+
+  input[type='radio'] {           //полоска ползунка
+    //  display: none;
+    
+    
+    // background-color: $color_white;
+    
+    // min-width: 555px;
+    // min-height: 55px;
+    // border-radius: 50px;
+    // cursor: pointer;
+    
+  }
+.form-container{        //главный контейнер формы
+    color: $color_white;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 25px ;
+    display: flex;
+    flex-direction: column;
+    min-width: 655px;
+    min-height: 750px;
+    background-color: $form-color;
+    padding: 20px 25px 40px;
+    border-radius:25px;
+    
+    // slider - слайдер + текст над ним и под
+    &__slider-value{    //должен быть внутри сладйера но лень переимовывать - значние, справа сверху
+        text-align: center;
+        min-width: 220px;
+        background-color:#337AB766;
+        border-radius:15px;
+    }
+
+    &__slider{        
+        // margin-top: 20px;  
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        
+    }
+    &__top-text{
+        
+    }
+    &__top-text, &__bot-text{
+        margin-bottom: 20px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        
+        
+        
+    }
+    // end of slider-container
+
+    //первый баттон - это контейнер кнопки + всплыающая ошибка снизу
+    &__button{
+       
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+
+       &__button{
+        
+        font-size: 20px; 
+        color:white;
+        background-color: $button-color; 
+        font-weight: 800;
+        margin: auto;
+        margin-top: 20px;
+        align-items: center;
+        min-width: 400px;
+        min-height: 75px;
+        border-radius: 15px;
+        
+
+        &:enabled{
+            border: 5px solid white;
+        }
+
+        &:disabled{
+            border: none;
+        }
+
+        &:hover{
+            
+        }
+
+        &:hover:disabled{
+            background-color: rgba(189, 55, 55, 0.555);
+        }
+        &:hover:enabled{
+            
+
+            transition: background-color .1s linear;
+            background-color: $color_green;
+        }
+
+       }
+       
+   
+    }
+    //end of button container
+
+
+    //каждый итем отдельно (слайдер, слайдер, список, кнопка с ошибкой
+    &__item{
+
+        &__text{
+            display: flex;
+            justify-content: space-between;
+            
+            &__value{
+                min-height: 38.75px;
+                text-align: center;
+                min-width: 220px;
+                border-radius:15px;
+                background-color: $values-lables-color;
+            }
+        }
+
+        
+    }
+    
+    //список способов получения
+    &__packages-block{
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__item{
+            align-items:center;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+            &__label{
+                // position: relative;
+                display: flex;
+                justify-content: space-between;
+                min-width: 600px;
+
+                &::after{
+                    // margin-left: 150px;
+                    //position: absolute;
+                    content:"";
+                    min-height: 25px;
+                    min-width: 25px;
+                    border: 3px solid white;
+                    border-radius: 50%; 
+                }
+
+                &::after + input[type="radio"]:checked{
+                    // margin-left: 150px;
+                    //position: absolute;
+                    content:"";
+                    min-height: 25px;
+                    min-width: 25px;
+                    border: 3px solid white;
+                    border-radius: 50%; 
+                }
+            }
+
+            &__input{
+                max-width: 50px;
+            }
+
+            
+        }
+    }
+    //end of packages-clock container
+
+    &__error-label{    //вплывающая ошибка
+        
+        text-align: center;
+        color: $color_dark-gray;
+        font-size: 20px;
+    }
+}

@@ -46,94 +46,91 @@ function RegForm(props) {
     }
 
     return (
-        <div className='login'>
-            <Formik
-                initialValues={{
-                    username: "",
-                    surname: "",
-                    patronymic: "",
-                    seria: "",
-                    number: "",
-                    email: "",
-                    password: "",
-
-                }}
-                validationSchema={SignupSchema}
-                validateOnBlur={SignupSchema}
-                onSubmit = {values => {post(values)}}
-            >
-                {({values, errors, handleBlur, isValid, dirty, touched, handleChange, handleSubmit,  isSubmitting}) => (
-                    <Form>
-                        <h2 className='login__logo'>Регистрация</h2>
-                        <p className='login__text'>Имя</p>
-                        {errors.username && touched.username  && <p className='login__error'>{errors.username}</p>}
-                        <input type="text"
-                               name="username"
-                               className='login__input'
-                               onChange={handleChange}
-                               onBlur={handleBlur}
-                               value={values.username}
-                        />
-                        <p className='login__text'>Фамилия</p>
-                        {errors.surname && touched.surname  && <p className='login__error'>{errors.surname}</p>}
-                        <input type="text"
-                               name="surname"
-                               className='login__input'
-                               onChange={handleChange}
-                               onBlur={handleBlur}
-                               value={values.surname}
-                        />
-                        <p className='login__text'>Отчество</p>
-                        {errors.patronymic && touched.patronymic  && <p className='login__error'>{errors.patronymic}</p>}
-                        <input type="text"
-                               name="patronymic"
-                               className='login__input'
-                               onChange={handleChange}
-                               onBlur={handleBlur}
-                               value={values.patronymic}
-                        />
-                        <p className='login__text'>Серия паспорта</p>
-                        <input type="text"
-                               name="seria"
-                               maxlength="4"
-                               className='login__input'
-                               onChange={handleChange}
-                               onBlur={handleBlur}
-                               value={values.seria}
-                        />
-                        <p className='login__text'>Номер паспорта</p>
-                        <input type="text"
-                               name="number"
-                               maxLength="6"
-                               className='login__input'
-                               onChange={handleChange}
-                               onBlur={handleBlur}
-                               value={values.number}
-                        />
-                        <p className='login__text'>Почта</p>
-                        {errors.email && touched.email  && <p className='login__error'>{errors.email}</p>}
-                        <input type="email"
-                               name="email"
-                               className='login__input'
-                               onChange={handleChange}
-                               onBlur={handleBlur}
-                               value={values.email}
-                        />
-                        <p className='login__text'>Пароль</p>
-                        <input
-                            type ="password"
-                            className='login__input'
-                            name="password"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.password}
-                        />
-                        <button type='submit' onClick={handleSubmit} disabled={!isValid} className='login__button'>Войти</button>
-                    </Form>
-                )}
-            </Formik>
-        </div>
-
+    <div className="form">
+        <form>
+            <h2 className="form__title">Регистрация</h2>
+            <p className="form__label">Имя:</p>
+            {(nameDirty && nameError) && <div className="form__error">{nameError}</div>}
+            <input
+                onChange={e => nameHandler(e)}
+                onBlur={e => blurHandler(e)}
+                value = {name}
+                type="text" 
+                name="username" 
+                placeholder="Имя" 
+                className="form__input"
+            />
+            <p className="form__label">Фамилия:</p>
+            {(surnameDirty && surnameError) && <div className="form__error">{surnameError}</div>}
+            <input 
+                onChange={e => surnameHandler(e)}
+                onBlur={e => blurHandler(e)}
+                value = {surname}
+                type="text" 
+                name="surname" 
+                placeholder="Фамилия" 
+                className="form__input"
+            />
+            <p className="form__label">Отчество:</p>
+            {(patronymicDirty && patronymicError) && <div className="form__error">{patronymicError}</div>}
+            <input 
+                onChange={e => patronymicHandler(e)}
+                onBlur={e => blurHandler(e)}
+                value ={patronymic}
+                type="text" 
+                name="patronymic" 
+                placeholder="Отчество" 
+                className="form__input"
+            />
+            <p className="form__label">Серия паспорта:</p>
+            {(seriesDirty && seriesError) && <div className="form__error">{seriesError}</div>}
+            <input 
+                onBlur={e => blurHandler(e)}
+                onChange = {e => seriesHandler(e)}
+                value = {series}
+                maxLength={4}
+                type="text" 
+                name="series" 
+                placeholder="Серия" 
+                className="form__input"
+            />
+            <p className="form__label">Номер паспорта:</p>
+            {(numberDirty && numberError) && <div className="form__error">{numberError}</div>}
+            <input 
+                onChange={e => numberHandler(e)}
+                onBlur={e => blurHandler(e)}
+                value ={number}
+                maxLength={6}
+                type="text" 
+                name="number" 
+                placeholder="Номер" 
+                className="form__input"
+            />
+            <p className="form__label">Email:</p>
+            {(emailDirty && emailError) && <div className="form__error">{emailError}</div>}
+            <input 
+                onChange={e => emailHandler(e)}
+                onBlur={e => blurHandler(e)}
+                value = {email}
+                type="email" 
+                name="email" 
+                placeholder="Почта" 
+                className="form__input"
+            />
+            <p className="form__label">Пароль:</p>
+            {(passwordDirty && passwordError) && <div className="form__error">{passwordError}</div>}
+            <input 
+                onChange={e => passwordHandler(e)}
+                onBlur={e => blurHandler(e)}
+                value = {password}
+                type="password" 
+                name="pass" 
+                placeholder="Пароль" 
+                className="form__input"
+            />
+            <button  onSubmit={(values) => post(values)} className="form__btn">За деньгами!</button>
+        </form>
+    </div>
 
     );
 }
