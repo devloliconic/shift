@@ -1,4 +1,7 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import * as Axios from "axios";
@@ -12,18 +15,32 @@ import Main from "./main/LoginMain"
 import axios from "axios";
 
 
-const LoginPage = () => {
+const LoginPage = (props) => {
+    console.log(props);
     const SignupSchema = Yup.object().shape({
       email: Yup.string().email("Неправильная почта"),
       password: Yup.string(),
     })
+    let navigate = useNavigate();
 
 
+
+    function transferToUserPage(data, email){
+        if(data === email){
+            props.setIsLoggedIn(true)
+            navigate("../user");
+        }
+        else{
+            return null;
+        }
+    }
 
 
     function post(values){
-        Axios.post("api/auth/sing-in", {email : values.email , password: values.password}).then(response => {
-            console.log((response.url));
+        Axios.post("api/auth/sing-in", {}, {params: {email : values.email , password: values.password}}).then(response => {
+            console.log((response.data));
+            const userResult = response.data.email;
+            return transferToUserPage(userResult, values.email)
         }).catch((error) => {
             console.log(error);
         })
@@ -33,8 +50,8 @@ const LoginPage = () => {
       <div className='login'>
         <Formik
           initialValues={{
-            email: " ",
-            password: " ",
+            email: "",
+            password: "",
           }}
           validationSchema={SignupSchema}
           validateOnBlur={SignupSchema}
@@ -61,7 +78,7 @@ const LoginPage = () => {
               onBlur={handleBlur}
               value={values.password}
               />
-              <button type='submit' onClick={handleSubmit} disabled={!isValid || isSubmitting} className='login__button'>Войти</button>
+              <button type='submit' onClick={handleSubmit} disabled={!isValid} className='login__button'>Войти</button>
             </Form>
           )}
         </Formik>
