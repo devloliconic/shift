@@ -28,27 +28,9 @@ function RegForm() {
     const [passwordError, setPasswordError] = useState('Пароль не может быть пустым');
     const [formValid, setFormValid] = useState(false)
 
-    const values = {
-        email: email,
-        name: name,
-        surname: surname,
-        patronymic: patronymic,
-        password: password
-    }
-    let config = {
-        headers: {
-            "Content-Type": "application/json",
-            'Access-Control-Allow-Origin': '*',
-        }
-    }
 
-    function post(email, name, surname, patronymic,password){
-        axios.post("http://localhost:8080/api/auth/sing-up", {email: email,password: password,surname: surname, patronymic:patronymic, name: name}, config).then(response => {
-            console.log((response.data));
-            debugger;
-        })
 
-    }
+
 
     useEffect( () =>{
         if(emailError || passwordError || nameError || surnameError || patronymicError || seriesError || numberError){
@@ -162,6 +144,26 @@ function RegForm() {
                 setNumberDirty(true);
         }
     }
+    function post(email, name, surname, patronymic,password){
+        const values = {
+            email: email,
+            name: name,
+            surname: surname,
+            patronymic: patronymic,
+            password: password
+        }
+        axios.post("/api/auth/sing-up", {} ,{params:{email: values.email,password: values.password,surname: values.surname, patronymic:values.patronymic, name: values.name}}).then(response => {
+            console.log((response.data));
+            debugger;
+        }).catch((error) => {
+            console.log(error);
+            debugger;
+        })
+
+    }
+    function chek(values){
+        console.log(values);
+    }
 
 
     return (
@@ -247,7 +249,7 @@ function RegForm() {
                 placeholder="Пароль" 
                 className="form__input"
             />
-            <button type={"submit"} onClick={({email, name, surname, patronymic,password}) => post(email, name, surname, patronymic,password)} className="form__btn">За деньгами!</button>
+            <button  onClick={({values}) => post(values)} className="form__btn">За деньгами!</button>
         </form>
     </div>
 

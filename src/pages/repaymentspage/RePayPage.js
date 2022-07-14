@@ -16,9 +16,6 @@ function RePayPage ({isLoggedIn}) {
         }
     }, [isLoggedIn]);
     if (isLoggedIn) {
-        axios.get("/api/api/user/account", {}).then(response => {
-            console.log((response.data));
-        })
         return (
             <div className={"repay"}>
                 <div className={"container"}>
